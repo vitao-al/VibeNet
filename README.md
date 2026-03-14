@@ -1,1 +1,1 @@
-# MedEasy
+# VibeNet

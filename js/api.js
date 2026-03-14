@@ -1,3 +1,4 @@
+//nas funções de carregar cada "document.getelementbyid" se refere a uma div do html
 
 //pega todos os usuários 
 async function get_users(params) {
@@ -8,16 +9,38 @@ async function get_users(params) {
     return users
     
 }
+//carrega todos os usuarios no html 
+async function load_users(params) {
+    const users=await get_users();
+    const conteiner=document.getElementById("users");
+
+
+
+    conteiner.innerHTML=`<pre>${JSON.stringify(users, null, 2)}</pre>`;
+
+    
+}
 
 
 //pega um usuário por id 
-async function get_users_id(id) {
+    async function get_users_id(id) {
 
-    const url="https://jsonplaceholder.typicode.com/users/"+id;
-    const response= await fetch(url);
-    const user= await response.json();
+        const url="https://jsonplaceholder.typicode.com/users/"+id;
+        const response= await fetch(url);
+        const user= await response.json();
 
-    return user
+        return user
+    }
+
+//carrega o usuario no html por id no html
+async function load_users_id() {
+    const user= await get_users_id();
+    
+    const conteiner=document.getElementById("user");
+
+    conteiner.innerHTML=`<pre>${JSON.stringify(user, null, 2)}</pre>`;
+
+    
 }
 
 
@@ -26,9 +49,20 @@ async function get_Userid_todos(userid) {
     const url="https://jsonplaceholder.typicode.com/users/" + userid+ "/todos";
     const response=await fetch(url);
     const todos=await response.json();
-    console.log(todos);
+   return todos
 }
-get_Userid_todos(1);
+
+
+
+
+//carrega todas as tarefas de um usuario no html 
+async function load_todo_id() {
+    const todo=await get_Userid_todos();
+    const conteiner=document.getElementById("todo");
+    conteiner.innerHTML=`<pre>${JSON.stringify(todo, null, 2)}</pre>`
+    
+}
+
 
 
 
@@ -42,34 +76,39 @@ async function get_todos_id(id) {
 }
 
 //pega uma foto por id 
-async function get_photo (id) {
-    const url ="https://jsonplaceholder.typicode.com/photos/"+id;
-    const response =await fetch(url);
-    const photo =await response.json();
+    async function get_photo (id) {
+        const url ="https://jsonplaceholder.typicode.com/photos/"+id;
+        const response =await fetch(url);
+        const photo =await response.json();
 
-    //o img é a tag onde a img esta se estiver dentro de uma div tem que colocar o caminho da div
-    const img=document.createElement("img");
-    img.src="https://picsum.photos/"+id
-
-    const conteiner =document.getElementById("photos")
-    conteiner.appendChild(img);    
-}
+        return photo;
+    
+           
+    }
 
 
 //pega todas as fotos do primeiro album do usuário 
-//por enquanto so retorna o json não carrega a imagem no html
 async function get_user_album_photos(userid) {
-  const response= await fetch("https://jsonplaceholder.typicode.com/users/"+userid+"/albums")
+  const response= await fetch("https://jsonplaceholder.typicode.com/users/"+userid+"/albums");
   const albums=await response.json();
 
   const album=albums[0];
 
-  const responsephotos=await fetch("https://jsonplaceholder.typicode.com/albums/"+album.id+"/photos")
+  const responsephotos=await fetch("https://jsonplaceholder.typicode.com/albums/"+album.id+"/photos");
   const photos=await responsephotos.json();
 
   return photos
 }
 
+//carrega o album 1 do usuario no html
+async function load_user_album_photos(params) {
+    const photos= await get_user_album_photos(1);
+    const conteiner=document.getElementById("album");
+
+    conteiner.innerHTML=`<pre>${JSON.stringify(photos, null, 2)}</pre>`
+
+
+}
 
 
 //pega todos os posts do usuário 
@@ -82,6 +121,20 @@ async function get_posts_id(userid) {
 
 }
 
+
+//carrega os posts de um usuário no html
+async function load_posts(params) {
+    const post=await get_posts_id(1);
+    const conteiner =document.getElementById("posts");
+
+    conteiner.innerHTML=`<pre>${JSON.stringify(post, null, 2)}</pre>`
+
+
+    
+}
+
+
+
 //pega os comentários de um post por id 
 async function get_comments_id(userpost) {
     const url ="https://jsonplaceholder.typicode.com/posts/"+userpost+"/comments";
@@ -90,6 +143,16 @@ async function get_comments_id(userpost) {
 
     return comments
 
+}
+
+
+//carrega os comeentarios de um post no html 
+async function load_comments(params) {
+    const comments=await get_comments_id(1);
+    const conteiner=document.getElementById("comments");
+
+    conteiner.innerHTML=`<pre>${JSON.stringify(comments, null, 2)}</pre>`
+    
 }
 
 

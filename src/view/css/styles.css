@@ -8,17 +8,17 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Impede scroll na área de trabalho */
-    font-family: 'Tahoma', sans-serif; /* Fonte padrão anos 2000 */
+    overflow: hidden;
+    font-family: 'Tahoma', sans-serif;
 }
 
-/* 2. BACKGROUND (ÁREA DE TRABALHO) */
+/* 2. BACKGROUND */
 .main {
     background-image: url("../../../public/windowsxpbg.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fixa o fundo para não cortar */
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -26,24 +26,24 @@ html, body {
     align-items: center;
 }
 
-/* 3. ESTRUTURA DA JANELA (PIXELNET) */
+/* 3. JANELA */
 .window {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza perfeito */
+    transform: translate(-50%, -50%);
     height: 600px;
     width: 950px;
     background: #DCD8D2;
     border: 2px solid #0054e3;
     box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
     z-index: 10;
-    
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 30px 1fr;
-    grid-template-areas: 
+    grid-template-rows: 30px 50px 1fr;
+    grid-template-areas:
         "title-bar"
+        "navbar"
         "app";
 }
 
@@ -53,7 +53,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, #0058e6 0%, #003da1 100%);
+    background: linear-gradient(to left, #BDCAE7 0%, #3676CA 50%, #003da1 100%);
     color: white;
     padding: 0 8px;
     cursor: grab;
@@ -61,6 +61,88 @@ html, body {
     font-size: 13px;
 }
 
+/* 5. NAVBAR */
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+    background-color: transparent;
+}
+
+/* 6. BOTÃO INVITE */
+.btn-invite-friends {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    padding: 5px 10px;
+    background-image: url("../../../public/invite-friends.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-invite-friends .label-btn-invite {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    font-size: 10px;
+    top: 45px;
+    left: 0;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-invite-friends:hover .label-btn-invite {
+    display: block;
+}
+
+.btn-invite-friends:hover {
+    background-color: gray;
+}
+
+/* 7. BOTÃO CREATE POST */
+.btn-create-post {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    padding: 5px 10px;
+    background-image: url("../../../public/create-post.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-create-post .label-btn-create-post {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+    font-size: 10px;
+    top: 45px;
+    left: 0;
+    white-space: nowrap;
+    z-index: 100;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-create-post:hover .label-btn-create-post {
+    display: block;
+}
+
+.btn-create-post:hover {
+    background-color: gray;
+}
+
+/* 8. CONTROLES DA JANELA */
 .controls .btn-tools {
     width: 21px;
     height: 21px;
@@ -76,18 +158,18 @@ html, body {
     color: white;
 }
 
-/* 5. ÁREA INTERNA DO APP */
+/* 9. ÁREA DO APP */
 .app {
     grid-area: app;
     display: grid;
-    grid-template-columns: 220px 1fr 200px; /* Profile | Timeline | Friends */
+    grid-template-columns: 220px 1fr 200px;
     gap: 5px;
     padding: 10px;
-    background: #ECE9D8; /* Bege clássico do Windows XP */
+    background: #ECE9D8;
     overflow: hidden;
 }
 
-/* 6. PAINEL DE PERFIL (ESQUERDA) */
+/* 10. PAINEL DE PERFIL */
 .painel-profile {
     background: #f0f0f0;
     border: 1px solid #808080;
@@ -109,7 +191,17 @@ html, body {
 .info-group { margin: 8px 0; font-size: 11px; }
 .info-group label { font-weight: bold; display: block; color: #000080; }
 
-/* 7. TIMELINE (MEIO) */
+.btn-edit-profile {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: rgb(170, 166, 166);
+    border: 1px solid #808080;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* 11. TIMELINE */
 .timeline-container {
     background: #fff;
     border: 1px inset #808080;
@@ -130,7 +222,7 @@ html, body {
 .card-post h3 { color: #0054e3; font-size: 14px; margin-bottom: 5px; }
 .card-post p { font-size: 12px; line-height: 1.4; }
 
-/* 8. PAINEL DE AMIGOS (DIREITA) */
+/* 12. PAINEL DE AMIGOS */
 .painel-friends {
     background: #fff;
     border: 1px solid #808080;
@@ -149,8 +241,8 @@ html, body {
 
 .friends-grid {
     display: grid;
-    grid-template-columns: repeat(2, 75px); /* 2 colunas de 75px */
-    grid-template-rows: repeat(5, 75px);    /* 5 linhas de 75px */
+    grid-template-columns: repeat(2, 75px);
+    grid-template-rows: repeat(5, 75px);
     gap: 8px;
     justify-content: center;
 }
@@ -164,16 +256,12 @@ html, body {
 }
 
 .friend-img:hover {
-    border: 2px solid #ff9900; /* Destaque laranja ao passar o mouse */
+    border: 2px solid #ff9900;
 }
 
-/* 9. BARRA DE ROLAGEM ESTILO RETRÔ */
-::-webkit-scrollbar {
-    width: 16px;
-}
-::-webkit-scrollbar-track {
-    background: #f0f0f0;
-}
+/* 13. SCROLLBAR RETRÔ */
+::-webkit-scrollbar { width: 16px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
 ::-webkit-scrollbar-thumb {
     background: #c0c0c0;
     border: 1px solid #fff;

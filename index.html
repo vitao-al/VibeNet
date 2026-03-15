@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/api.js" defer></script>
+    <title>Dashboard - PixelNet</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="../services/userServices.js" defer></script>
+    <script type="module" src="../controller/dashboard.js" defer></script>
+    <script type="module" src="../controller/dragmousedown.js" defer></script>
+    <script type="module" src="../controller/timeline.js" defer></script>
+    <script type="module" src="../controller/painel-profile.js" defer></script>
+    <script type="module" src="../controller/painel-friends.js" defer></script>
+
 </head>
-<body>
-    
+<body class="main"> 
+
+    <div id="janela" class="window">
+        <div id="barra-titulo" class="title-bar">
+            <span>PixelNet</span>
+            <div class="controls">
+                <button class="btn-tools">_</button>
+                <button class="btn-tools">□</button>
+                <button class="btn-tools btn-close">X</button>
+            </div>
+        </div>
+        <div class="navbar">
+            <button class="btn-create-post"><span class="label-btn-create-post">Publicar</span></button>
+            <button class="btn-invite-friends" alt="Adicionar amigos"><span class="label-btn-invite">Adicionar amigos</span></button>
+        </div>
+        <div class="app">
+            <div class="painel-profile">
+                <h1 class="username">Carregando...</h1> 
+            </div>
+            
+            <div class="timeline-container">
+                malditos
+            </div>
+
+            <div class="painel-friends">
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

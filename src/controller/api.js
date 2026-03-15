@@ -14,8 +14,6 @@ export async function load_users(params) {
     const users=await get_users();
     const conteiner=document.getElementById("users");
 
-
-
     conteiner.innerHTML=`<pre>${JSON.stringify(users, null, 2)}</pre>`;
 
     return console.log(users);

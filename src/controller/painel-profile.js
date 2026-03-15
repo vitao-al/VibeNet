@@ -40,6 +40,7 @@ const renderProfile = (user) => {
                     <p class="company-name">${user.company.name}</p>
                     <p class="company-phrase"><em>"${user.company.catchPhrase}"</em></p>
                 </div>
+                <button class="btn-edit-profile">Editar Perfil</button>
             </div>
         </div>
     `;

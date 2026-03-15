@@ -9,7 +9,7 @@ class User {
     company = {};    
     fotoperfil = '';
     posts = {};
-
+// teste
   constructor(data,foto,posts) {
     this.id = data.id;
     this.name = data.name;

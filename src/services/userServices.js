@@ -1,4 +1,4 @@
-import * as api from "../controller/api.js"
+import * as api from "../controller/api.js";
 import { User } from "../model/user.js";
 import { get_fotoperfil } from "../model/fotoperfil.js";
 
@@ -7,9 +7,9 @@ const users = []; // Aqui pode ser const pois usamos .push()
 for (let i = 1; i <= 10; i++) {
   const userData = await api.get_users_id(i);
   const userPosts = await api.get_posts_id(i);
-  
+
   // CORREÇÃO: Use 'let' para permitir que o valor mude
-  let userFoto = ""; 
+  let userFoto = "";
 
   const fotoData = await get_fotoperfil(i);
 
@@ -17,7 +17,7 @@ for (let i = 1; i <= 10; i++) {
     userFoto = "../../../defaultfoto.png";
   } else {
     // Se fotoData for apenas a string do caminho, use-a direto
-    userFoto = fotoData; 
+    userFoto = fotoData;
   }
 
   if (!userData) {
@@ -28,7 +28,9 @@ for (let i = 1; i <= 10; i++) {
   }
 }
 
-export function sortearUsuarios(users) {
+
+
+export function AddFriends(users) {
     // Criamos uma cópia para não estragar o array original
     let listaCopiada = [...users]; 
     
@@ -36,10 +38,22 @@ export function sortearUsuarios(users) {
         const j = Math.floor(Math.random() * (i + 1));
         // Troca os elementos de lugar (Destructuring)
         [listaCopiada[i], listaCopiada[j]] = [listaCopiada[j], listaCopiada[i]];
+
     }
     
     return listaCopiada;
 }
+
+export function getRandomFriends(allUsers, count = 10, excludeUserId) {
+    const candidates = allUsers.filter((u) => u.id !== excludeUserId);
+    return AddFriends(candidates).slice(0, count);
+}
+
+// Agora que todos os usuários foram carregados, setamos amigos aleatórios para cada um.
+users.forEach((user) => {
+    user.set_friends(getRandomFriends(users, 10, user.id));
+});
+
 export function timeline(users) {
     // Criamos uma cópia para não estragar o array original
     let listaCopiada = [...users]; 

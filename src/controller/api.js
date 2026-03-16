@@ -63,20 +63,18 @@ export async function load_users() {
 
         const response = await fetch(url);
 
-        if (!response.ok) {
+        if (!response) {
             throw new Error("Erro na requisição: " + response.status);
         }
+        else{
+            const user = await response.json();
 
-        const user = await response.json();
-
-        return user;
-
+            return user;
+        }
     } 
     catch (error) {
 
-        console.error("Erro ao buscar usuário por ID:", error);
-
-        return null;
+        return "Erro ao buscar usuário por ID:", error;
 
     }
 

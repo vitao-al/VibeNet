@@ -1,6 +1,8 @@
-import { users} from "../services/userServices.js";
-import { sortearUsuarios } from "../services/userServices.js";
-   const aleatoriosusers = sortearUsuarios(users)
+import { users } from "../services/userServices.js";
+
+// Assumindo que o usuário atual é o primeiro (você pode mudar isso para o usuário logado)
+const currentUser = users[0]; // Ou defina como necessário
+
 const renderFriends = () => {
     const painelfriends = document.querySelector('.painel-friends');
     
@@ -14,22 +16,24 @@ const renderFriends = () => {
 
     const grid = painelfriends.querySelector('.friends-grid');
 
-    // Aqui está o segredo: percorrer o array de usuários
-    aleatoriosusers.forEach((user) => {
+    // Acessa os friends do usuário atual
+    const friends = currentUser.get_friends();
+
+    friends.forEach((friend) => {
         const img = document.createElement('img');
-        img.src = user.fotoperfil;
+        img.src = friend.fotoperfil;
         img.classList.add('friend-img');
-        img.title = user.name; // Aparece o nome ao passar o mouse
+        img.title = friend.name; // Aparece o nome ao passar o mouse
         
         // Se clicar na foto, você pode fazer algo (opcional)
-        img.onclick = () => console.log("Clicou no amigo: " + user.name);
+        img.onclick = () => console.log("Clicou no amigo: " + friend.name);
         
         grid.appendChild(img);
     });
 };
 
 const checkData = setInterval(() => {
-    if (aleatoriosusers.length > 0) {
+    if (users.length > 0 && currentUser.get_friends().length > 0) {
         renderFriends();
         clearInterval(checkData);
     }

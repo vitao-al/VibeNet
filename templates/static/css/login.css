@@ -1,14 +1,89 @@
+
 body{
+    height: 100vh;
+    margin: 0;
     display: flex;
+    background: url("../../../public/windowsxpbg.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    font-family: Tahoma, Verdana, sans-serif;
     
 }
-
+.window{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border: 1px solid black;
+    background: #ffffff;
+}
+html{
+    height: 100%;
+    margin: 0;
+}
 .login-container{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+    background-image: linear-gradient(360deg,#ffffff 90%,#3999f4);
+    background-size: 100% 200%;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.title-bar {
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #BDCAE7 0%, #3676CA 50%, #003da1 100%);
+    color: white;
+    padding: 0 8px;
+    cursor: grab;
+    font-weight: bold;
+    font-size: 13px;
+    
+}
+
+.login-container h1{
+    font-size: 24px;
+    color: #11268f;
+    margin-bottom: 20px;
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+}
+.img-msn{
+    margin-top: 100px;
+    width: 50%;
+    height: 50%;
+}
+.login-container label{
+    font-size: 16px;
+    color: #090a58;
+    margin-bottom: 20px;
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+}
+.criar-perfil-link{
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+}
+.entrar{
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+    width: 100px;
+    height: 30px;
+}
+input{
+    margin: 5px;
 }

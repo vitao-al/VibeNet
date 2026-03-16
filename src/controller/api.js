@@ -367,7 +367,7 @@ export async function load_posts(userid) {
 
 
 
-//pega os comentários de um post por id 
+//pega os comentarios de um post por id 
 export async function get_comments_id(userpost) {
 
     try {
@@ -375,7 +375,7 @@ export async function get_comments_id(userpost) {
         const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${userpost}/comments`);
 
         if (!response.ok) {
-            throw new Error("Erro na requisição: " + response.status);
+            throw new Error("Erro na requisicao: " + response.status);
         }
 
         const comments = await response.json();

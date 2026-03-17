@@ -1,4 +1,5 @@
 import { users } from "../services/userServices.js";
+import { getCurrentUser } from "../services/authService.js";
 
 const renderProfile = (user) => {
     const profilePanel = document.querySelector('.painel-profile');
@@ -40,16 +41,44 @@ const renderProfile = (user) => {
                     <p class="company-name">${user.company.name}</p>
                     <p class="company-phrase"><em>"${user.company.catchPhrase}"</em></p>
                 </div>
-                <button class="btn-edit-profile">Editar Perfil</button>
+                <div class="profile-actions">
+                    <button class="btn-edit-profile">Editar Perfil</button>
+                    <button class="btn-logout" id="btn-logout">Sair</button>
+                </div>
             </div>
         </div>
     `;
+
+    const logoutBtn = document.getElementById('btn-logout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            import('../services/authService.js').then(({ logout }) => {
+                logout();
+                window.location.href = '/templates/static/html/login.html';
+            });
+        });
+    }
 };
 
-// GAMBIARRA NECESSÁRIA: Esperar a API preencher o array 'users'
-const checkData = setInterval(() => {
-    if (users.length > 0) {
-        renderProfile(users[0]); // Renderiza o primeiro usuário da lista
-        clearInterval(checkData); // Para de procurar
-    }
-}, 100);
+const currentUser = getCurrentUser();
+
+if (currentUser) {
+    renderProfile({
+        name: currentUser.nome,
+        username: currentUser.usuario.replace(/^@?/, ""),
+        email: currentUser.email,
+        phone: "(não informado)",
+        website: "",
+        address: { street: "", suite: "", city: "", zipcode: "" },
+        company: { name: "", catchPhrase: currentUser.bio || "" },
+        fotoperfil: currentUser.foto,
+    });
+} else {
+    // GAMBIARRA NECESSÁRIA: Esperar a API preencher o array 'users'
+    const checkData = setInterval(() => {
+        if (users.length > 0) {
+            renderProfile(users[0]); // Renderiza o primeiro usuário da lista
+            clearInterval(checkData); // Para de procurar
+        }
+    }, 100);
+}

@@ -1,5 +1,6 @@
 import { users } from "../services/userServices.js"; // Lembre-se do .js no final
 import { get_comments_id } from "./api.js";
+import { getCurrentUser } from "../services/authService.js";
 
 const timelineContainerSelector = '.timeline-container';
 
@@ -97,7 +98,12 @@ const showComments = async (post, user) => {
     send.onclick = () => {
         const text = input.value.trim();
         if (!text) return;
-        const newComment = { name: user.name || 'Você', email: user.email || '', body: text };
+
+        const sessionUser = getCurrentUser();
+        const authorName = sessionUser ? sessionUser.nome : user.name || 'Você';
+        const authorEmail = sessionUser ? sessionUser.email : user.email || '';
+
+        const newComment = { name: authorName, email: authorEmail, body: text };
         renderComment(newComment);
         input.value = '';
         list.scrollTop = list.scrollHeight;

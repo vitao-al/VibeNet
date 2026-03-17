@@ -22,7 +22,7 @@
 
     <div class="criar-novo-perfil-container">
         <h1>Criar Novo Perfil</h1>
-      <form action="/criar-perfil" method="post">
+      <form action="#" method="post">
         <section>
           <label for="nome">Nome completo:</label>
           <input type="text" id="nome" name="nome" required placeholder="Fulaninho Cicrano">
@@ -42,7 +42,7 @@
         <section>
           <label for="foto-perfil">Foto de perfil:</label>
           <input type="file" id="foto-perfil" name="foto_perfil" accept="image/*">
-         <!--para pensar-->
+        </section>
         <section>
           <label for="bio">Bio curta:</label>
           <textarea id="bio" name="bio" rows="3" placeholder="Estudante de CC na Unima Afya..."></textarea>
@@ -61,6 +61,7 @@
     </div>
       
   </main>
+  <script type="module" src="/src/controller/auth-register.js" defer></script>
     <script>
 const windowEl = document.querySelector(".window");
 const titleBar = document.querySelector(".barra-janela");

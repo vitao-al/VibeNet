@@ -16,6 +16,18 @@
     { "src": "^/static/(.*)$", "dest": "/static/$1" },
     { "src": "^/public/(.*)$", "dest": "/public/$1" },
     { "src": "^/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))$", "dest": "/$1" },
-    { "src": "^/(.*)$", "dest": "/index.html" }
+
+    // rota principal agora para login
+    { "src": "^/$", "dest": "/templates/static/html/login.html" },
+
+    // endpoints de página fora do SPA
+    { "src": "^/criar-perfil$", "dest": "/templates/static/html/criar_perfil.html" },
+    { "src": "^/login$", "dest": "/templates/static/html/login.html" },
+
+    // fallback para dashboard (index)
+    { "src": "^/index.html$", "dest": "/index.html" },
+
+    // caso genérico
+    { "src": "^/(.*)$", "dest": "/templates/static/html/login.html" }
   ]
 }

@@ -27,10 +27,10 @@
                 <h1 class="login-container-title">Entrar na RedeSocial</h1>
                 
                 <div class="login-container-forms">
-                      <form action="/login" method="post">
+                      <form action="#" method="post">
                     <section>
                       <label for="email">E-mail ou usuário:</label>
-                      <input type="email" id="email" name="email" required placeholder="exemplo@gmail.com">
+                      <input type="text" id="email" name="email" required placeholder="exemplo@gmail.com ou @usuario">
                     </section>
                     <section>
                       <label for="senha">Senha:</label>
@@ -51,6 +51,7 @@
         
   </main>
   </div>
+  <script type="module" src="/src/controller/auth-login.js" defer></script>
   <script>
 const windowEl = document.querySelector(".window");
 const titleBar = document.querySelector(".title-bar");

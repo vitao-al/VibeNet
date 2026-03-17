@@ -1,10 +1,18 @@
 {
   "version": 2,
   "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "css/**", "use": "@vercel/static" },
+    { "src": "src/**", "use": "@vercel/static" },
+    { "src": "templates/**", "use": "@vercel/static" },
+    { "src": "static/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))", "dest": "/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "^/css/(.*)$", "dest": "/css/$1" },
+    { "src": "^/src/(.*)$", "dest": "/src/$1" },
+    { "src": "^/templates/(.*)$", "dest": "/templates/$1" },
+    { "src": "^/static/(.*)$", "dest": "/static/$1" },
+    { "src": "^/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))$", "dest": "/$1" },
+    { "src": "^/(.*)$", "dest": "/index.html" }
   ]
 }

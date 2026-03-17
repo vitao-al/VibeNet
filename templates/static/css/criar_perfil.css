@@ -1,6 +1,97 @@
 body{
+    height: 100vh;
+    margin: 0;
     display: flex;
+    background: url("../../../public/windowsxpbg.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+html{
+    height: 100%;
+    margin: 0;
+}
+
+.window{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    background: white;
+    width:640px;
+}
+
+.criar-novo-perfil-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-image: linear-gradient(360deg,#ffffff 90%,#3999f4);
+    background-size: 100% 200%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.barra-janela{
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #BDCAE7 0%, #3676CA 50%, #003da1 100%);
+    color: white;
+    padding: 0 8px;
+    cursor: grab;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.criar-novo-perfil-container h1{
+    font-size: 27px;
+    color: #11268f;
+    margin-bottom: 20px;
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+}
+
+/* imagem do msn */
+.img-msn{
+  margin-top: 100px;
+    width: 50%;
+    height: 50%;
+}
+
+.barra-janela{
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(to right,#003da1,#3676CA,#BDCAE7);
+    color: white;
+    padding: 0px 8px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+input{
+    margin: 5px;
+}
+
+.CriarPerfil{
+    font-family: Tahoma, Verdana, sans-serif;
+    filter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><defs><filter id="crispify"><feComponentTransfer><feFuncA type="discrete" tableValues="0 1"/></feComponentTransfer></filter></defs></svg>#crispify');
+    width: 100px;
+    height: 30px;
+}
+    input, textarea{
+    border: 1px solid #7f9db9;
+    padding: 2px;
+    font-family: Tahoma, Verdana, sans-serif;
 }

@@ -14,7 +14,7 @@ html, body {
 
 /* 2. BACKGROUND */
 .main {
-    background-image: url("../../../public/windowsxpbg.jpeg");
+    background-image:url("../../../public/windowsxpbg.jpeg") ;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

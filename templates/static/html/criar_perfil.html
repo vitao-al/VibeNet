@@ -11,7 +11,25 @@
 
 <body>
   <main>
+    <div class="window">
+
+    <div class="barra-janela">
+      Criar Perfil
+      <button class="btn-tools">_</button>
+      <button class="btn-tools">□</button>
+      <button class="btn-tools btn-close">X</button>
+    </div>
+
     <div class="criar-novo-perfil-container">
+
+      <h1>Criar Novo Perfil</h1>
+
+      <form action="/criar-perfil" method="post">
+
+        <section>
+          <label for="nome">Nome completo:</label>
+          <input type="text" id="nome" name="nome" required placeholder="Fulaninho
+  </div>
       <h1>Criar Novo Perfil</h1>
       <form action="/criar-perfil" method="post">
         <section>
@@ -33,14 +51,13 @@
         <section>
           <label for="foto-perfil">Foto de perfil:</label>
           <input type="file" id="foto-perfil" name="foto_perfil" accept="image/*">
-          <p>(pré-visualização da foto selecionada)</p>
-        </section>
+         <!--para pensar-->
         <section>
           <label for="bio">Bio curta:</label>
           <textarea id="bio" name="bio" rows="3" placeholder="Estudante de CC na Unima Afya..."></textarea>
         </section>
         <section>
-          <button type="submit">Criar Perfil</button>
+          <button class = "CriarPerfil" type="submit">Criar Perfil</button>
         </section>
 
         <section>
@@ -54,3 +71,4 @@
 </body>
 
 </html>
+

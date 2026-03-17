@@ -14,23 +14,14 @@
     <div class="window">
 
     <div class="barra-janela">
-      Criar Perfil
+      <span class="title-titlebar">Criar Perfil </span>
       <button class="btn-tools">_</button>
       <button class="btn-tools">□</button>
       <button class="btn-tools btn-close">X</button>
     </div>
 
     <div class="criar-novo-perfil-container">
-
-      <h1>Criar Novo Perfil</h1>
-
-      <form action="/criar-perfil" method="post">
-
-        <section>
-          <label for="nome">Nome completo:</label>
-          <input type="text" id="nome" name="nome" required placeholder="Fulaninho
-  </div>
-      <h1>Criar Novo Perfil</h1>
+        <h1>Criar Novo Perfil</h1>
       <form action="/criar-perfil" method="post">
         <section>
           <label for="nome">Nome completo:</label>
@@ -67,7 +58,38 @@
       </form>
     </div>
     
+    </div>
+      
   </main>
+    <script>
+const windowEl = document.querySelector(".window");
+const titleBar = document.querySelector(".barra-janela");
+
+let offsetX = 0;
+let offsetY = 0;
+let isDragging = false;
+
+titleBar.addEventListener("mousedown", (e) => {
+    isDragging = true;
+
+    offsetX = e.clientX - windowEl.offsetLeft;
+    offsetY = e.clientY - windowEl.offsetTop;
+
+    titleBar.style.cursor = "grabbing";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    windowEl.style.left = (e.clientX - offsetX) + "px";
+    windowEl.style.top = (e.clientY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    titleBar.style.cursor = "grab";
+});
+</script>
 </body>
 
 </html>

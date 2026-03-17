@@ -17,6 +17,10 @@ html{
 }
 
 .window{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -41,9 +45,10 @@ html{
 }
 
 .barra-janela{
+    height: 24px;
     cursor: grab;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
     background: linear-gradient(to left, #BDCAE7 0%, #3676CA 50%, #003da1 100%);
     color: white;
@@ -52,7 +57,13 @@ html{
     font-weight: bold;
     font-size: 13px;
 }
+.title-titlebar{
+    margin-right: 29.7rem;
+}
+.barra-janela button{
+    margin: 3px;
 
+}
 .criar-novo-perfil-container h1{
     font-size: 27px;
     color: #11268f;

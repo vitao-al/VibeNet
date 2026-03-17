@@ -16,18 +16,18 @@
     { "src": "^/static/(.*)$", "dest": "/static/$1" },
     { "src": "^/public/(.*)$", "dest": "/public/$1" },
     { "src": "^/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))$", "dest": "/$1" },
- 
-    // rota principal agora para login
+
+    // rota principal pode ser login
     { "src": "^/$", "dest": "/templates/static/html/login.html" },
 
-    // endpoints de página fora do SPA
+    // endpoints alternativos (pura conveniência)
     { "src": "^/criar-perfil$", "dest": "/templates/static/html/criar_perfil.html" },
     { "src": "^/login$", "dest": "/templates/static/html/login.html" },
 
-    // fallback para dashboard (index)
+    // index (dashboard) específico
     { "src": "^/index.html$", "dest": "/index.html" },
 
-    // caso genérico
-    { "src": "^/(.*)$", "dest": "/templates/static/html/login.html" }
+    // fallback SPA para index (defensa contra rotas dinâmicas)
+    { "src": "^/(.*)$", "dest": "/index.html" }
   ]
 }

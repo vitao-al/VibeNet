@@ -1,8 +1,8 @@
-# VibeNet 🌐
+# PixelNet 🌐
 
-**VibeNet** é uma rede social simulada no estilo anos 2000 , construída com HTML, CSS e JavaScript puro. O projeto consome a [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) para exibir usuários, posts, amigos, timeline e fotos de perfil de forma dinâmica,todos os dados são simulados ja que é uma api fake.
+**PixelNet** é uma rede social simulada no estilo anos 2000 , construída com HTML, CSS e JavaScript puro. O projeto consome a [JSONPlaceholder API](https://jsonplaceholder.typicode.com/) para exibir usuários, posts, amigos, timeline e fotos de perfil de forma dinâmica,todos os dados são simulados ja que é uma api fake.
 
-> 🚀 Deploy: [https://vibe-mzkqnolcp-victor-manuels-projects-1f1d4044.vercel.app](https://vibe-mzkqnolcp-victor-manuels-projects-1f1d4044.vercel.app) *(via Vercel)*
+> 🚀 Deploy: [https://vibe-net-rho.vercel.app/](https://vibe-net-rho.vercel.app/) *(via Vercel)*
 
 ---
 
@@ -43,6 +43,7 @@
 ```
 VibeNet/
 ├── public/                      # Arquivos públicos estáticos
+├── docs/                        # Documentos uml
 ├── src/
 │   ├── controller/              # Lógica de controle e interação com o DOM
 │   │   ├── api.js               # Funções de consumo da API

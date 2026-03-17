@@ -2,6 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
+    { "src": "src/view/**", "use": "@vercel/static" },
     { "src": "css/**", "use": "@vercel/static" },
     { "src": "src/**", "use": "@vercel/static" },
     { "src": "templates/**", "use": "@vercel/static" },
@@ -16,18 +17,13 @@
     { "src": "^/static/(.*)$", "dest": "/static/$1" },
     { "src": "^/public/(.*)$", "dest": "/public/$1" },
     { "src": "^/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))$", "dest": "/$1" },
-
-    // rota principal pode ser login
     { "src": "^/$", "dest": "/templates/static/html/login.html" },
-
-    // endpoints alternativos (pura conveniência)
-    { "src": "^/criar-perfil$", "dest": "/templates/static/html/criar_perfil.html" },
+    { "src": "^/dashboard$", "dest": "/templates/static/html/dashboard.html" },
     { "src": "^/login$", "dest": "/templates/static/html/login.html" },
-
-    // index (dashboard) específico
-    { "src": "^/index.html$", "dest": "/index.html" },
-
-    // fallback SPA para index (defensa contra rotas dinâmicas)
-    { "src": "^/(.*)$", "dest": "/index.html" }
+    { "src": "^/criar-perfil$", "dest": "/templates/static/html/criar_perfil.html" },
+    { "src": "^/templates/static/html/login.html$", "dest": "/templates/static/html/login.html" },
+    { "src": "^/templates/static/html/criar-perfil.html$", "dest": "/templates/static/html/criar_perfil.html" },
+    { "src": "^/templates/static/view/dashboard.html$", "dest": "/templates/static/html/dashboard.html" },
+    { "src": "^/(.*)$", "dest": "/templates/static/html/login.html" }
   ]
 }

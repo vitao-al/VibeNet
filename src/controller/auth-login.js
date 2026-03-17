@@ -11,7 +11,7 @@ if (form) {
         try {
             loginUser({ emailOuUsuario, senha });
             alert("Login efetuado com sucesso! Redirecionando...");
-            window.location.href = "/index.html";
+            window.location.href = "/templates/static/html/dashboard.html";
         } catch (err) {
             alert(err.message);
         }

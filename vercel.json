@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/((?!css|src|templates|static|public|favicon\\.ico|robots\\.txt).*)",
-      "destination": "/index.html"
-    }
-  ]
-}

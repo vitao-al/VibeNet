@@ -14,7 +14,7 @@ html, body {
 
 /* 2. BACKGROUND */
 .main {
-    background-image:url("../../../public/windowsxpbg.jpeg") ;
+    background-image: url("/public/windowsxpbg.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -76,7 +76,7 @@ html, body {
     height: 40px;
     width: 40px;
     padding: 5px 10px;
-    background-image: url("../../../public/invite-friends.png");
+    background-image: url("/public/invite-friends.png");
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;
@@ -112,7 +112,7 @@ html, body {
     height: 40px;
     width: 40px;
     padding: 5px 10px;
-    background-image: url("../../../public/create-post.png");
+    background-image: url("/public/create-post.png");
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: contain;

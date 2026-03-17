@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!css|src|templates|static|public|favicon\\.ico|robots\\.txt).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

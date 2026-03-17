@@ -54,7 +54,7 @@ const renderProfile = (user) => {
         logoutBtn.addEventListener('click', () => {
             import('../services/authService.js').then(({ logout }) => {
                 logout();
-                window.location.href = '/templates/static/html/login.html';
+                window.location.href = '/login';
             });
         });
     }
